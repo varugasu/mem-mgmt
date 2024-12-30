@@ -28,6 +28,12 @@ class StackAllocator {
     return block;
   }
 
+  Marker getMarker() const { return top; }
+
+  void freeToMarker(Marker marker) { top = marker; }
+
+  void clear() { top = 0; }
+
  private:
   char* memory;
   uint32_t stackSize;
